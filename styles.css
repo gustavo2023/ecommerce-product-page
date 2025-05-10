@@ -176,6 +176,11 @@ header {
   height: 3.125rem;
   flex-shrink: 0;
   border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.user-avatar-container.avatar-active-border {
+  border-color: var(--orange-500);
 }
 
 .sidebar {

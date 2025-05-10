@@ -2,6 +2,8 @@ const openMenuBtn = document.querySelector(".menu-open-button");
 const closeMenuBtn = document.querySelector(".menu-close-button");
 const sidebar = document.getElementById("sidebar");
 const overlay = document.querySelector(".overlay");
+const shoppingCartBtn = document.querySelector(".shopping-cart-btn");
+const userAvatarContainer = document.querySelector(".user-avatar-container");
 
 const openSidebar = () => {
   sidebar.classList.add("open");
@@ -41,3 +43,9 @@ document.addEventListener("keydown", (event) => {
     closeSidebar();
   }
 });
+
+if (shoppingCartBtn && userAvatarContainer) {
+  shoppingCartBtn.addEventListener("click", () => {
+    userAvatarContainer.classList.toggle("avatar-active-border");
+  });
+}

@@ -44,8 +44,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-if (shoppingCartBtn && userAvatarContainer) {
-  shoppingCartBtn.addEventListener("click", () => {
-    userAvatarContainer.classList.toggle("avatar-active-border");
-  });
-}
+shoppingCartBtn.addEventListener("click", () => {
+  userAvatarContainer.classList.toggle("avatar-active-border");
+});

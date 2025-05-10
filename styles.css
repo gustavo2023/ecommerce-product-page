@@ -108,7 +108,7 @@ textarea:not([rows]) {
 body {
   position: relative;
   overflow-x: hidden;
-  padding: 25px 30px;
+  padding: 25px 40px;
 }
 
 header {
@@ -123,6 +123,19 @@ header {
   display: flex;
   align-items: center;
   gap: var(--spacing-700);
+}
+
+.menu-open-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.logo-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .desktop-nav ul {
@@ -141,14 +154,26 @@ header {
 .desktop-nav a:hover {
   color: var(--grey-950);
   text-decoration: underline;
-  text-underline-offset: 38px;
+  text-underline-offset: 48px;
   text-decoration-thickness: 4px;
   text-decoration-color: var(--orange-500);
 }
 
-.menu-open-button {
-  display: none;
+.header-right-side {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-600);
+}
+
+.shopping-cart-btn {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.user-avatar-container {
+  width: 3.125rem;
+  height: 3.125rem;
+  flex-shrink: 0;
+  border-radius: 50%;
 }

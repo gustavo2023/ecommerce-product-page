@@ -249,7 +249,7 @@ header {
   transition: opacity 0.3s ease-in-out;
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 35rem) {
   body {
     padding: 0;
   }
@@ -282,7 +282,26 @@ header {
   }
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 35rem) and (max-width: 64rem) {
+  .header-left-side {
+    gap: var(--spacing-200);
+  }
+
+  .menu-open-button {
+    display: block;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .sidebar {
+    width: 18.8125rem;
+    padding: var(--spacing-600) var(--spacing-1000);
+  }
+}
+
+@media (min-width: 64rem) {
   .sidebar {
     display: none;
   }

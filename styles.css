@@ -179,13 +179,14 @@ header {
 }
 
 .sidebar {
+  background-color: white;
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   width: 15.625rem;
   padding: var(--spacing-300);
-  transform: translateX(100%);
+  transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
   visibility: hidden;
@@ -209,6 +210,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  margin-top: var(--spacing-700);
   gap: var(--spacing-300);
   flex-shrink: 0;
 }
@@ -225,6 +227,7 @@ header {
 
 .sidebar a:hover {
   color: var(--orange-500);
+  transition: all 0.3s ease-in-out;
 }
 
 .overlay {
@@ -254,6 +257,7 @@ header {
   header {
     padding: var(--spacing-200) var(--spacing-200) var(--spacing-300)
       var(--spacing-200);
+    border-bottom: none;
   }
 
   .header-left-side {

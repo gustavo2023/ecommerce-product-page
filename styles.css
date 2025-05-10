@@ -104,3 +104,51 @@ textarea:not([rows]) {
   --spacing-1300: 6.5rem;
   --spacing-1600: 8rem;
 }
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  padding: 25px 30px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--spacing-400);
+  border-bottom: 1px solid var(--grey-100);
+}
+
+.header-left-side {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-700);
+}
+
+.desktop-nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-400);
+}
+
+.desktop-nav a {
+  text-decoration: none;
+  color: var(--grey-500);
+  font: var(--text-preset-4);
+}
+
+.desktop-nav a:hover {
+  color: var(--grey-950);
+  text-decoration: underline;
+  text-underline-offset: 38px;
+  text-decoration-thickness: 4px;
+  text-decoration-color: var(--orange-500);
+}
+
+.menu-open-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}

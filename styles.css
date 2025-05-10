@@ -245,3 +245,45 @@ header {
   visibility: visible;
   transition: opacity 0.3s ease-in-out;
 }
+
+@media (max-width: 48rem) {
+  body {
+    padding: 0;
+  }
+
+  header {
+    padding: var(--spacing-200) var(--spacing-200) var(--spacing-300)
+      var(--spacing-200);
+  }
+
+  .header-left-side {
+    gap: var(--spacing-200);
+  }
+
+  .menu-open-button {
+    display: block;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .header-right-side {
+    gap: var(--spacing-300);
+  }
+
+  .user-avatar-container {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .sidebar {
+    display: none;
+  }
+
+  .overlay {
+    display: none;
+  }
+}

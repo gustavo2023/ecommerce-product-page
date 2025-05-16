@@ -4,6 +4,10 @@ const sidebar = document.getElementById("sidebar");
 const overlay = document.querySelector(".overlay");
 const shoppingCartBtn = document.querySelector(".shopping-cart-btn");
 const userAvatarContainer = document.querySelector(".user-avatar-container");
+const cartDropdown = document.getElementById("cart-dropdown");
+const emptyCartMessage = document.querySelector(".empty-cart-message");
+const cartItemExample = document.querySelector(".cart-item");
+const checkoutBtn = document.querySelector(".checkout-btn");
 
 const openSidebar = () => {
   sidebar.classList.add("open");
@@ -45,5 +49,25 @@ document.addEventListener("keydown", (event) => {
 });
 
 shoppingCartBtn.addEventListener("click", () => {
-  userAvatarContainer.classList.toggle("avatar-active-border");
+  cartDropdown.classList.toggle("visible");
+
+  const isExpanded = shoppingCartBtn.getAttribute("aria-expanded") === "true";
+  shoppingCartBtn.setAttribute("aria-expanded", !isExpanded);
+  cartDropdown.setAttribute("aria-hidden", isExpanded);
+
+  userAvatarContainer.classList.toggle("avatar-active-border", !isExpanded);
+
+  if (cartDropdown.classList.contains("visible")) {
+    const cartIsEmpty = true; // Assume empty initially
+
+    if (cartIsEmpty) {
+      emptyCartMessage.classList.remove("hidden");
+      cartItemExample.classList.add("hidden");
+      checkoutBtn.classList.add("hidden");
+    } else {
+      emptyCartMessage.classList.add("hidden");
+      cartItemExample.classList.remove("hidden");
+      checkoutBtn.classList.remove("hidden");
+    }
+  }
 });

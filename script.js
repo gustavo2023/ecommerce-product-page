@@ -71,3 +71,28 @@ shoppingCartBtn.addEventListener("click", () => {
     }
   }
 });
+
+document.addEventListener("click", (event) => {
+  const isClickInsideCart = cartDropdown.contains(event.target);
+  const isClickOnCartButton = shoppingCartBtn.contains(event.target);
+
+  if (
+    cartDropdown.classList.contains("visible") &&
+    !isClickInsideCart &&
+    !isClickOnCartButton
+  ) {
+    cartDropdown.classList.remove("visible");
+    shoppingCartBtn.setAttribute("aria-expanded", "false");
+    cartDropdown.setAttribute("aria-hidden", "true");
+    userAvatarContainer.classList.remove("avatar-active-border");
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && cartDropdown.classList.contains("visible")) {
+    cartDropdown.classList.remove("visible");
+    shoppingCartBtn.setAttribute("aria-expanded", "false");
+    cartDropdown.setAttribute("aria-hidden", "true");
+    userAvatarContainer.classList.remove("avatar-active-border");
+  }
+});

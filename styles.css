@@ -385,6 +385,13 @@ header {
     width: 1.5rem;
     height: 1.5rem;
   }
+
+  .cart-dropdown {
+    position: absolute;
+    top: calc(
+      100% + var(--spacing-400)
+    );
+  }
 }
 
 /* Tablet Styles */

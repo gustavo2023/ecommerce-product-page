@@ -205,7 +205,7 @@ header {
 .cart-header {
   font: var(--text-preset-3-bold);
   color: var(--grey-950);
-  padding-bottom: var(--spacing-300);
+  padding: 0 0 var(--spacing-300) var(--spacing-200);
   border-bottom: 1px solid var(--grey-100);
 }
 

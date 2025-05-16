@@ -163,6 +163,7 @@ header {
   display: flex;
   align-items: center;
   gap: var(--spacing-600);
+  position: relative;
 }
 
 .shopping-cart-btn {
@@ -181,6 +182,104 @@ header {
 
 .user-avatar-container.avatar-active-border {
   border-color: var(--orange-500);
+}
+
+.cart-dropdown {
+  position: absolute;
+  top: calc(100% + var(--spacing-200));
+  right: 0;
+  z-index: 100;
+  width: 22.5rem;
+  display: none;
+  flex-direction: column;
+  padding: var(--spacing-300) 0;
+  background-color: white;
+  border-radius: 0.625rem;
+  box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.1);
+}
+
+.cart-dropdown.visible {
+  display: flex;
+}
+
+.cart-header {
+  font: var(--text-preset-3-bold);
+  color: var(--grey-950);
+  padding-bottom: var(--spacing-300);
+  border-bottom: 1px solid var(--grey-100);
+}
+
+.cart-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-cart-message {
+  font: var(--text-preset-3-bold);
+  color: var(--grey-500);
+  text-align: center;
+  padding: var(--spacing-900) 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-200);
+  margin-top: var(--spacing-300);
+}
+
+.cart-item-thumbnail {
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 0.25rem;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-name {
+  font: var(--text-preset-3-regular);
+  color: var(--grey-500);
+}
+
+.cart-item-price {
+  font: var(--text-preset-3-regular);
+  color: var(--grey-500);
+}
+
+.cart-item-total {
+  font: var(--text-preset-3-bold);
+  color: var(--grey-950);
+}
+
+.delete-item-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: var(--spacing-200) 0;
+  border: none;
+  border-radius: 0.625rem;
+  background-color: var(--orange-500);
+  font: var(--text-preset-3-bold);
+  color: var(--grey-950);
+  margin-top: var(--spacing-300);
+}
+
+.checkout-btn:hover {
+  background-color: var(--orange-300);
+}
+
+.hidden {
+  display: none;
 }
 
 .sidebar {
@@ -254,6 +353,7 @@ header {
   transition: opacity 0.3s ease-in-out;
 }
 
+/* Mobile Styles */
 @media (max-width: 35rem) {
   body {
     padding: 0;
@@ -287,6 +387,7 @@ header {
   }
 }
 
+/* Tablet Styles */
 @media (min-width: 35rem) and (max-width: 64rem) {
   .header-left-side {
     gap: var(--spacing-200);
@@ -306,6 +407,7 @@ header {
   }
 }
 
+/* Desktop Styles */
 @media (min-width: 64rem) {
   .sidebar {
     display: none;

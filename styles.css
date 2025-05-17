@@ -584,6 +584,7 @@ main {
   font: var(--text-preset-5);
   color: var(--grey-500);
   margin-bottom: var(--spacing-300);
+  letter-spacing: 0.125rem;
 }
 
 h2 {
@@ -626,7 +627,7 @@ h2 {
   color: white;
   font: var(--text-preset-3-bold);
   width: 3.1875rem;
-  padding: 0.2rem 0;
+  padding: 0.2rem 0.59rem;
 }
 
 .original-price {

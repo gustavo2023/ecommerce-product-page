@@ -170,6 +170,33 @@ header {
   background: none;
   border: none;
   cursor: pointer;
+  position: relative;
+}
+
+.cart-item-count {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background-color: var(--orange-500);
+  color: white;
+  border-radius: 0.40625rem;
+  padding: 0.15rem 0.45rem;
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 0.625rem;
+  font-weight: 700;
+  width: 1.1875rem;
+  height: 0.8125rem;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  box-sizing: border-box;
+  visibility: hidden;
+}
+
+.cart-item-count.visible {
+  visibility: visible;
 }
 
 .user-avatar-container {

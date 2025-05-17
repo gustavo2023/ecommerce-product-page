@@ -133,8 +133,13 @@ const renderCartItemsDOM = () => {
 const updateCartIconBadge = () => {
     const totalItemsInCart = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
     if (cartItemCountSpan) {
-        cartItemCountSpan.textContent = totalItemsInCart;
-        cartItemCountSpan.style.display = totalItemsInCart > 0 ? 'inline-block' : 'none';
+        if (totalItemsInCart > 0) {
+            cartItemCountSpan.textContent = totalItemsInCart;
+            cartItemCountSpan.classList.add("visible");
+        } else {
+            cartItemCountSpan.textContent = ""; // Clear content when cart is empty
+            cartItemCountSpan.classList.remove("visible");
+        }
     }
 };
 

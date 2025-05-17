@@ -84,8 +84,9 @@ const increaseSelectedQuantity = () => {
 
 // --- Cart Management ---
 const clearCartDOMItems = () => {
-  const currentItemElements = cartItemsContainer.querySelectorAll('div.cart-item');
-  currentItemElements.forEach(item => item.remove());
+  const currentItemElements =
+    cartItemsContainer.querySelectorAll("div.cart-item");
+  currentItemElements.forEach((item) => item.remove());
 };
 
 const updateCartVisibility = (itemCount) => {
@@ -105,19 +106,25 @@ const createCartItemDOM = (itemProduct, quantity, productId) => {
   cartItemElement.dataset.productId = productId;
 
   cartItemElement.innerHTML = `
-      <img src="${itemProduct.thumbnail}" alt="${itemProduct.name} thumbnail" class="cart-item-thumbnail">
+      <img src="${itemProduct.thumbnail}" alt="${
+    itemProduct.name
+  } thumbnail" class="cart-item-thumbnail">
       <div class="cart-item-details">
           <p class="cart-item-name">${itemProduct.name}</p>
-          <p class="cart-item-price">$${itemProduct.price.toFixed(2)} x <span class="cart-item-quantity">${quantity}</span> <span class="cart-item-total">$${itemTotal}</span></p>
+          <p class="cart-item-price">$${itemProduct.price.toFixed(
+            2
+          )} x <span class="cart-item-quantity">${quantity}</span> <span class="cart-item-total">$${itemTotal}</span></p>
       </div>
       <button class="delete-item-btn" aria-label="Remove item from cart">
            <svg width="14" height="16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M0 2.625V1.75C0 1.334.334 1 .75 1h3.5l.294-.584A.741.741 0 0 1 5.213 0h3.571a.75.75 0 0 1 .672.416L9.75 1h3.5c.416 0 .75.334.75.75v.875a.376.376 0 0 1-.375.375H.375A.376.376 0 0 1 0 2.625Zm13 1.75V14.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 1 14.5V4.375C1 4.169 1.169 4 1.375 4h11.25c.206 0 .375.169.375.375ZM4.5 6.5c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Z" id="a"/></defs><use fill="#C3CAD9" fill-rule="nonzero" xlink:href="#a"/></svg>
       </button>
   `;
 
-  cartItemElement.querySelector(".delete-item-btn").addEventListener("click", () => {
-    removeProductFromCart(productId);
-  });
+  cartItemElement
+    .querySelector(".delete-item-btn")
+    .addEventListener("click", () => {
+      removeProductFromCart(productId);
+    });
 
   return cartItemElement;
 };
@@ -131,16 +138,19 @@ const renderCartItemsDOM = () => {
 };
 
 const updateCartIconBadge = () => {
-    const totalItemsInCart = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
-    if (cartItemCountSpan) {
-        if (totalItemsInCart > 0) {
-            cartItemCountSpan.textContent = totalItemsInCart;
-            cartItemCountSpan.classList.add("visible");
-        } else {
-            cartItemCountSpan.textContent = ""; // Clear content when cart is empty
-            cartItemCountSpan.classList.remove("visible");
-        }
+  const totalItemsInCart = Object.values(cart).reduce(
+    (sum, qty) => sum + qty,
+    0
+  );
+  if (cartItemCountSpan) {
+    if (totalItemsInCart > 0) {
+      cartItemCountSpan.textContent = totalItemsInCart;
+      cartItemCountSpan.classList.add("visible");
+    } else {
+      cartItemCountSpan.textContent = ""; // Clear content when cart is empty
+      cartItemCountSpan.classList.remove("visible");
     }
+  }
 };
 
 const updateCartDisplay = () => {
@@ -158,6 +168,8 @@ const addProductToCart = (productId, quantity) => {
   if (quantity > 0) {
     cart[productId] = (cart[productId] || 0) + quantity;
     updateCartDisplay();
+  } else {
+    alert("Please select a quantity greater than 0.");
   }
 };
 
@@ -214,17 +226,21 @@ const toggleCartDropdown = () => {
 };
 
 const closeCartDropdown = () => {
-    cartDropdown.classList.remove("visible");
-    shoppingCartBtn.setAttribute("aria-expanded", "false");
-    cartDropdown.setAttribute("aria-hidden", "true");
-    userAvatarContainer.classList.remove("avatar-active-border");
+  cartDropdown.classList.remove("visible");
+  shoppingCartBtn.setAttribute("aria-expanded", "false");
+  cartDropdown.setAttribute("aria-hidden", "true");
+  userAvatarContainer.classList.remove("avatar-active-border");
 };
 
 const handleDocumentClickForCartDropdown = (event) => {
   const isClickInsideCart = cartDropdown.contains(event.target);
   const isClickOnCartButton = shoppingCartBtn.contains(event.target);
 
-  if (cartDropdown.classList.contains("visible") && !isClickInsideCart && !isClickOnCartButton) {
+  if (
+    cartDropdown.classList.contains("visible") &&
+    !isClickInsideCart &&
+    !isClickOnCartButton
+  ) {
     closeCartDropdown();
   }
 };
@@ -248,17 +264,20 @@ const setActiveThumbnail = (thumbnailsNodeList, index) => {
     thumb.classList.toggle("active", isActive);
     thumb.setAttribute("aria-selected", isActive.toString());
     if (thumbnailsNodeList === lightboxThumbnails) {
-        thumb.setAttribute("tabindex", isActive ? "0" : "-1");
+      thumb.setAttribute("tabindex", isActive ? "0" : "-1");
     }
   });
 };
 
 const openLightbox = () => {
-  if (window.innerWidth > 768) { // Only open lightbox on desktop sizes
+  if (window.innerWidth > 768) {
+    // Only open lightbox on desktop sizes
     lightbox.classList.add("open");
     lightbox.setAttribute("aria-hidden", "false");
     lightboxMainImage.src = images[currentImageIndex].full; // Use currentImageIndex
-    lightboxMainImage.alt = `Fall Limited Edition Sneakers - large view ${currentImageIndex + 1}`;
+    lightboxMainImage.alt = `Fall Limited Edition Sneakers - large view ${
+      currentImageIndex + 1
+    }`;
     setActiveThumbnail(lightboxThumbnails, currentImageIndex);
     document.body.style.overflow = "hidden";
     lightboxNextBtn.focus(); // Focus on a button in lightbox
@@ -275,7 +294,9 @@ const closeLightbox = () => {
 const updateLightboxImage = (index) => {
   if (index >= 0 && index < images.length) {
     lightboxMainImage.src = images[index].full;
-    lightboxMainImage.alt = `Fall Limited Edition Sneakers - large view ${index + 1}`;
+    lightboxMainImage.alt = `Fall Limited Edition Sneakers - large view ${
+      index + 1
+    }`;
     currentImageIndex = index;
     setActiveThumbnail(lightboxThumbnails, index);
   }
@@ -292,7 +313,9 @@ const navigateLightboxNext = () => {
 };
 
 const handleLightboxThumbnailClick = (event) => {
-  const index = parseInt(event.target.closest('.lightbox-thumbnail-image').dataset.index);
+  const index = parseInt(
+    event.target.closest(".lightbox-thumbnail-image").dataset.index
+  );
   updateLightboxImage(index);
 };
 
@@ -309,7 +332,7 @@ const handleEscapeKeyForLightbox = (event) => {
 };
 
 const handleProductThumbnailClick = (event) => {
-  const clickedThumbnail = event.target.closest('.thumbnail-image');
+  const clickedThumbnail = event.target.closest(".thumbnail-image");
   if (!clickedThumbnail) return;
   const index = parseInt(clickedThumbnail.dataset.index);
   updateMainProductImage(index);
@@ -348,34 +371,36 @@ const setInitialActiveThumbnails = () => {
 };
 
 const updateViewBasedOnScreenSize = () => {
-    const currentlyMobile = window.innerWidth <= 768;
-    if (isMobileView === currentlyMobile) return; // No change in view type
+  const currentlyMobile = window.innerWidth <= 768;
+  if (isMobileView === currentlyMobile) return; // No change in view type
 
-    isMobileView = currentlyMobile;
+  isMobileView = currentlyMobile;
 
-    if (!isMobileView) { // Switched to Desktop
-        mobilePrevBtn.style.display = "none";
-        mobileNextBtn.style.display = "none";
-        mainProductImage.style.cursor = "pointer";
-    } else { // Switched to Mobile
-        mobilePrevBtn.style.display = "flex";
-        mobileNextBtn.style.display = "flex";
-        mainProductImage.style.cursor = "default";
-        if (lightbox.classList.contains("open")) {
-            closeLightbox(); // Close lightbox if open when switching to mobile
-        }
+  if (!isMobileView) {
+    // Switched to Desktop
+    mobilePrevBtn.style.display = "none";
+    mobileNextBtn.style.display = "none";
+    mainProductImage.style.cursor = "pointer";
+  } else {
+    // Switched to Mobile
+    mobilePrevBtn.style.display = "flex";
+    mobileNextBtn.style.display = "flex";
+    mainProductImage.style.cursor = "default";
+    if (lightbox.classList.contains("open")) {
+      closeLightbox(); // Close lightbox if open when switching to mobile
     }
+  }
 };
-
 
 const initializePageUI = () => {
   updateQuantityDisplay();
   updateCartDisplay();
   setInitialActiveThumbnails();
   updateViewBasedOnScreenSize(); // Initial setup for mobile/desktop view
-  if (images.length > 0) { // Set initial main product image
-      mainProductImage.src = images[0].full;
-      mainProductImage.alt = `Fall Limited Edition Sneakers - image 1`;
+  if (images.length > 0) {
+    // Set initial main product image
+    mainProductImage.src = images[0].full;
+    mainProductImage.alt = `Fall Limited Edition Sneakers - image 1`;
   }
 };
 
@@ -386,9 +411,11 @@ addToCartBtn.addEventListener("click", handleAddToCart);
 
 openMenuBtn.addEventListener("click", openSidebar);
 closeMenuBtn.addEventListener("click", closeSidebar);
+
 if (overlay) {
-  overlay.addEventListener("click", closeSidebar); // Assuming overlay click always closes sidebar
+  overlay.addEventListener("click", closeSidebar);
 }
+
 document.addEventListener("keydown", handleEscapeKeyForSidebar);
 
 shoppingCartBtn.addEventListener("click", toggleCartDropdown);

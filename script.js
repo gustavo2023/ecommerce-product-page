@@ -138,7 +138,7 @@ let currentImageIndex = 0;
 
 const openLightbox = () => {
   // Only open lightbox on desktop sizes
-  if (window.innerWidth > 1024) {
+  if (window.innerWidth > 768) {
     lightbox.classList.add("open");
     lightbox.setAttribute("aria-hidden", "false");
     lightboxMainImage.src = mainProductImage.src;
@@ -254,14 +254,14 @@ const updateMobileImage = (index) => {
 };
 
 mobilePrevBtn.addEventListener("click", () => {
-  if (window.innerWidth < 1024) {
+  if (window.innerWidth <= 768) {
     const newIndex = (currentImageIndex - 1 + images.length) % images.length;
     updateMobileImage(newIndex);
   }
 });
 
 mobileNextBtn.addEventListener("click", () => {
-  if (window.innerWidth <= 1024) {
+  if (window.innerWidth <= 768) {
     const newIndex = (currentImageIndex + 1) % images.length;
     updateMobileImage(newIndex);
   }
@@ -278,11 +278,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Optional: Handle window resizing to switch between behaviors
-let isMobileView = window.innerWidth <= 560;
+let isMobileView = window.innerWidth <= 768;
 
 window.addEventListener("resize", () => {
   const wasMobileView = isMobileView;
-  isMobileView = window.innerWidth <= 560;
+  isMobileView = window.innerWidth <= 768;
 
   if (wasMobileView !== isMobileView) {
     // If switching between mobile and desktop views, ensure correct elements are visible/hidden

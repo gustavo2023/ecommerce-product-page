@@ -391,6 +391,7 @@ header {
     top: calc(
       100% + var(--spacing-400)
     );
+    width: clamp(10rem, 100vw - 2rem, 22.5rem);
   }
 }
 

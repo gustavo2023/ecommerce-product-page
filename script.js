@@ -262,7 +262,7 @@ const setActiveThumbnail = (thumbnailsNodeList, index) => {
   thumbnailsNodeList.forEach((thumb, idx) => {
     const isActive = idx === index;
     thumb.classList.toggle("active", isActive);
-    thumb.setAttribute("aria-selected", isActive.toString());
+
     if (thumbnailsNodeList === lightboxThumbnails) {
       thumb.setAttribute("tabindex", isActive ? "0" : "-1");
     }
@@ -336,6 +336,7 @@ const handleProductThumbnailClick = (event) => {
   if (!clickedThumbnail) return;
   const index = parseInt(clickedThumbnail.dataset.index);
   updateMainProductImage(index);
+  updateLightboxImage(index);
   setActiveThumbnail(thumbnailImages, index);
 };
 

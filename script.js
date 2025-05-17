@@ -277,7 +277,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Optional: Handle window resizing to switch between behaviors
 let isMobileView = window.innerWidth <= 768;
 
 window.addEventListener("resize", () => {
@@ -290,15 +289,14 @@ window.addEventListener("resize", () => {
       // Switched to Desktop - hide mobile buttons, ensure main image click works
       mobilePrevBtn.style.display = "none";
       mobileNextBtn.style.display = "none";
-      mainProductImage.style.cursor = "pointer"; // Add pointer cursor for desktop click
+      mainProductImage.style.cursor = "pointer";
     } else {
       // Switched to Mobile - show mobile buttons, disable main image click for lightbox
-      mobilePrevBtn.style.display = "flex"; // Or 'block' depending on your CSS
-      mobileNextBtn.style.display = "flex"; // Or 'block' depending on your CSS
-      mainProductImage.style.cursor = "default"; // Remove pointer cursor
-      closeLightbox(); // Close lightbox if open on mobile
+      mobilePrevBtn.style.display = "flex"; 
+      mobileNextBtn.style.display = "flex"; 
+      mainProductImage.style.cursor = "default";
+      closeLightbox();
     }
-    // Re-evaluate event listeners if needed, though current implementation handles this
   }
 });
 

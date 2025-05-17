@@ -869,6 +869,11 @@ h2 {
   .lightbox {
     display: none;
   }
+
+  .product-details {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 /* Desktop Styles */

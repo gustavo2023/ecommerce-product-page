@@ -456,15 +456,15 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--spacing-300);
-  max-width: 550px;
+  gap: var(--spacing-200);
+  max-width: 34.375rem;
   padding: var(--spacing-300);
 }
 
 .lightbox-close-btn {
   position: absolute;
-  top: -var(--spacing-600);
-  right: 0;
+  top: -var(--spacing-100);
+  right: -10px;
   background: none;
   border: none;
   cursor: pointer;
@@ -493,8 +493,8 @@ main {
 .lightbox-prev-btn,
 .lightbox-next-btn {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 40%;
+  transform: translateY(-40%);
   background-color: white;
   border-radius: 50%;
   width: 3.5rem;
@@ -509,11 +509,11 @@ main {
 }
 
 .lightbox-prev-btn {
-  left: -var(--spacing-300);
+  left: 2px;
 }
 
 .lightbox-next-btn {
-  right: -var(--spacing-300);
+  right: 2px;
 }
 
 .lightbox-prev-btn svg path,
@@ -532,13 +532,17 @@ main {
 }
 
 .lightbox-thumbnail-image {
-  /* Inherits styles from .thumbnail-image */
-  width: 3rem; /* Adjust size for lightbox thumbnails */
-  height: 3rem; /* Keep aspect ratio */
+  width: 3rem;
+  height: 3rem;
 }
 
 .lightbox-thumbnail-image.active {
-  /* Inherits active styles */
+  opacity: 0.4;
+}
+
+.thumbnail-container:has(.lightbox-thumbnail-image.active) {
+  opacity: 1;
+  border-color: var(--orange-500);
 }
 
 /* Mobile Styles */
@@ -592,7 +596,6 @@ main {
   }
 
   .main-image-container {
-    margin-top: var(--spacing-100);
     border-radius: 0;
     overflow: visible;
   }

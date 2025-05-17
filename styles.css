@@ -571,6 +571,42 @@ h2 {
   margin-bottom: var(--spacing-400);
 }
 
+.price-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-100);
+}
+
+.product-price {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-200);
+}
+
+.current-price {
+  font: var(--text-preset-2);
+  color: var(--grey-950);
+}
+
+.discount-tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--grey-950);
+  border-radius: 0.375rem;
+  color: white;
+  font: var(--text-preset-3-bold);
+  width: 3.1875rem;
+  padding: 0.2rem 0;
+}
+
+.original-price {
+  font: var(--text-preset-3-bold);
+  color: var(--grey-500);
+  text-decoration: line-through;
+}
+
 /* Mobile Styles */
 @media (max-width: 35rem) {
   body {

@@ -607,6 +607,57 @@ h2 {
   text-decoration: line-through;
 }
 
+.add-to-cart {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-200);
+}
+
+.quantity-selection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-100);
+  background-color: var(--grey-50);
+  border-radius: 0.625rem;
+  padding: var(--spacing-200) var(--spacing-100);
+  width: 40%;
+}
+
+.minus-item-btn,
+.add-item-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.item-quantity {
+  font: var(--text-preset-3-bold);
+  color: var(--grey-950);
+}
+
+.add-to-cart-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-200);
+  padding: var(--spacing-200);
+  border: none;
+  border-radius: 0.625rem;
+  background-color: var(--orange-500);
+  box-shadow: 0px 20px 50px -20px rgba(255, 126, 27, 0.25);
+  color: var(--grey-950);
+  font: var(--text-preset-3-bold);
+  width: 60%;
+  cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+  background-color: var(--orange-300);
+}
+
 /* Mobile Styles */
 @media (max-width: 35rem) {
   body {

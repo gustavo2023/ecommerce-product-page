@@ -545,6 +545,32 @@ main {
   border-color: var(--orange-500);
 }
 
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 var(--spacing-300);
+  max-width: 27.8125rem;
+}
+
+.company-name {
+  font: var(--text-preset-5);
+  color: var(--grey-500);
+  margin-bottom: var(--spacing-300);
+}
+
+h2 {
+  font: var(--text-preset-1);
+  color: var(--grey-950);
+  margin-bottom: var(--spacing-400);
+}
+
+.product-description {
+  font: var(--text-preset-3-regular);
+  color: var(--grey-500);
+  margin-bottom: var(--spacing-400);
+}
+
 /* Mobile Styles */
 @media (max-width: 35rem) {
   body {
